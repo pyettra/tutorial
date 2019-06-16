@@ -18,13 +18,13 @@ O projeto foi dividido em 3 arquivos para melhorar gerenciarmos suas funcionalid
 
 Dividimos o projeto pelas structs necessárias para o jogo acontecer. Elas são as seguintes e possuem os determinados dados:
 
-###Semente
+### Semente
 Possui um nome que a identifica (string), um tempo de crescimento (int), a variável 'ready' que diz quanto tempo já passou até a semente estar pronta (int) e as variáveis linha e coluna (int) que indicam a posição que essa semente se encontra no mapa. 
 
-###Jogador
+### Jogador
 Possui nome (string), indicador de fome (int), indicador de saúde (int), variáveis de linha e coluna que indicam a posição do jogador no mapa (int) e um vetor chamado mochila, de 50 posições, do tipo semente. 
 
-###Mapa
+### Mapa
 Possui um ponteiro do tipo char que chamaremos de mapa (e que receberá o arquivo de texto a ser lido), as variáveis de linha (lin) e coluna (col) do tipo inteiro, um vetor chamado "chao", de 300 posições, do tipo semente e que cuidará das sementes que estão no chão do mapa. A última variável se chama "plantado", de 300 posições, também do tipo semente e que indica as sementes que já foram plantadas no terreno.
 
 ###Observa
@@ -38,21 +38,21 @@ Para realizar a implementação das funções, inicialmente mapeamos todas as fu
 
 -> map random_semente(map terreno): essa função faz o controle dos tipos de semente que estarão dentro do mapa quando o jogo for inicializado e gerará susas posições de modo randômico. Para isso, passamos o terreno, que é do tipo Map, como argumento da função. O retorno da função será uma estrutura do tipo Map, atualizada com as sementes em posições randômicas. Nessa função, fazemos o controle do tipo de semente que será colocada nas posições do mapa e também as inicializamos com os respectivos nomes, variável de crescimento e a variável "ready", que é incrementada até a semente estar pronta para ser colhida ou apodrecer. Aqui, criamos 4 tipos de sementes disponíveis no mapa:
 
-  ###SEMENTES
+  ### SEMENTES
   
-  ###1
+  ### 1
   Nome: Amor
   Crescimento: 3
   
-  ###2
+  ### 2
   Nome: Abóbora
   Crescimento: 7
   
-  ###3
+  ### 3
   Nome: Fruto do Conde
   Crescimento: 10
   
-  ###4
+  ### 4
   Nome: Discórdia
   Crescimento: 12
 
@@ -88,19 +88,19 @@ O controle dessa função é feito através de um laço de while, que randomiza 
  
 -> void imprimeMapa(map M1): função responsável pela impressão do mapa no terminal do usuário. Percorre todas as linhas e colunas da matriz e realiza a impressão de caracteres. Consideramos que:
   
-  #define paredeCimaBaixo '-'
-  #define paredeEsquerdaDireita '|'
-  #define andar '.'
-  #define plantar '*' 
+  define paredeCimaBaixo '-'
+  define paredeEsquerdaDireita '|'
+  define andar '.'
+  define plantar '*' 
   
  Nosso mapa foi definido pelo arquivo txt transcrito abaixo:
  
- 5 24
-------------------------
-|......................|
-|..***....****....***..|
-|..***....****....***..|
-------------------------
+   5 24
+  ------------------------
+  |......................|
+  |..***....****....***..|
+  |..***....****....***..|
+  ------------------------
 
 
 -> map fim_de_turno(map M1): define o modo como o tempo passa dentro do jogo. Escolhemos controlar o tempo do jogo através da fome do jogador, que aumenta conforme o passar de turno e diminui quando o personagem come alguma fruta. Esse número depende do quanto a fruta produz saciedade no jogador.
